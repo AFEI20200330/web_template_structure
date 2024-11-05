@@ -17,6 +17,11 @@ import (
 )
 
 func main() {
+
+	// if len(os.Args) <2 {
+	// 	return  //no command line argument provided
+	// }
+
 	//load settings
 	if err := settings.Init(); err != nil {
 		fmt.Println("initialization of settings failed", err)
