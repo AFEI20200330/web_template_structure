@@ -1,15 +1,14 @@
-app:
-  name:"web_template"
-  mode:"dev"
-  port:8081
-  version:"1.0.0"
+name: "web_template"
+mode: "dev"
+port: 8081
+version: "1.0.0"
 
 log:
-  level:"debug"
-  filename:"web_template.log"
-  max_size:200
-  max_age:30
-  max_backups:7
+  level: "debug"
+  filename: "web_template.log"
+  max_size: 200
+  max_age: 30
+  max_backups: 7
 
 mysql:
   host: "127.0.0.1"

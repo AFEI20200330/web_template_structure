@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 	"os/signal"
@@ -14,7 +13,6 @@ import (
 	"web_template/utils/logger"
 	"web_template/utils/mysql"
 	"web_template/utils/redis"
-	"github.com/spf13/viper"
 	"go.uber.org/zap"
 )
 
@@ -50,7 +48,7 @@ func main() {
 
 	//Start the server(shut down gracefully)
 	srv := &http.Server{
-		Addr:    fmt.Sprintf(":%d", viper.GetInt("app.port")),
+		Addr:    fmt.Sprintf(":%d", settings.Conf.Port),
 		Handler: r,
 	}
 
@@ -73,7 +71,7 @@ func main() {
 
 	//Shutdown the server, waiting for it to complete or timeout, and log any errors, if any.
 	if err := srv.Shutdown(ctx); err != nil {
-		log.Fatal("Server forced to shutdown:", zap.Error(err))
+		zap.L().Error("Server forced to shutdown:", zap.Error(err))
 	}
 	zap.L().Info("Server exited ")
 }

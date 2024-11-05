@@ -2,7 +2,6 @@ package settings
 
 import (
 	"fmt"
-
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 )
@@ -47,8 +46,9 @@ type RedisConfig struct {
 }
 
 func Init() (err error) {
-	viper.SetConfigName("config") // name of config file (without extension)
-	viper.SetConfigType("yaml")   // the file extension of the config file,json or yaml possible
+	viper.SetConfigFile("config.yaml")
+	//viper.SetConfigName("config") // name of config file (without extension)
+	//viper.SetConfigType("yaml")   // the file extension of the config file,json or yaml possible. This method is used to point out the file extension when getting the config  infomation from remote server.
 	viper.AddConfigPath(".")      // search the config in the working directory
 	if err := viper.ReadInConfig(); err != nil {
 		fmt.Println("Error reading config file, ", err)
