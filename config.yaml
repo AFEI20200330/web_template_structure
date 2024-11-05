@@ -1,0 +1,28 @@
+app:
+  name:"web_template"
+  mode:"dev"
+  port:8081
+  version:"1.0.0"
+
+log:
+  level:"debug"
+  filename:"web_template.log"
+  max_size:200
+  max_age:30
+  max_backups:7
+
+mysql:
+  host: "127.0.0.1"
+  port: 3306
+  user: "root"
+  password: "Fay0810_"
+  dbname: "app"
+  max_open_conns: 200
+  max_idle_conns: 10
+
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  db: 0
+  password: ""
+  pool_size: 100
